@@ -27,47 +27,47 @@ def product_detail(request, id):
     return Response(serializer.data)
 
 
-# 🔐 CREATE PRODUCT (protected)
-@api_view(['POST'])
-@permission_classes([IsAuthenticated])
-@permission_classes([IsAdminUser])
+# # 🔐 CREATE PRODUCT (protected)
+# @api_view(['POST'])
+# @permission_classes([IsAuthenticated])
+# @permission_classes([IsAdminUser])
 
-def create_product(request):
-    serializer = ProductSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=201)
-    return Response(serializer.errors, status=400)
-
-
-# 🔐 UPDATE PRODUCT
-@api_view(['PUT'])
-@permission_classes([IsAuthenticated])
-@permission_classes([IsAdminUser])
-
-def update_product(request, id):
-    try:
-        product = Product.objects.get(id=id)
-    except Product.DoesNotExist:
-        return Response({"error": "Not found"}, status=404)
-
-    serializer = ProductSerializer(product, data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data)
-    return Response(serializer.errors, status=400)
+# def create_product(request):
+#     serializer = ProductSerializer(data=request.data)
+#     if serializer.is_valid():
+#         serializer.save()
+#         return Response(serializer.data, status=201)
+#     return Response(serializer.errors, status=400)
 
 
-#  DELETE PRODUCT
-@api_view(['DELETE'])
-@permission_classes([IsAuthenticated])
-@permission_classes([IsAdminUser])
+# # 🔐 UPDATE PRODUCT
+# @api_view(['PUT'])
+# @permission_classes([IsAuthenticated])
+# @permission_classes([IsAdminUser])
 
-def delete_product(request, id):
-    try:
-        product = Product.objects.get(id=id)
-    except Product.DoesNotExist:
-        return Response({"error": "Not found"}, status=404)
+# def update_product(request, id):
+#     try:
+#         product = Product.objects.get(id=id)
+#     except Product.DoesNotExist:
+#         return Response({"error": "Not found"}, status=404)
 
-    product.delete()
-    return Response({"message": "Deleted successfully"}, status=204)
+#     serializer = ProductSerializer(product, data=request.data)
+#     if serializer.is_valid():
+#         serializer.save()
+#         return Response(serializer.data)
+#     return Response(serializer.errors, status=400)
+
+
+# #  DELETE PRODUCT
+# @api_view(['DELETE'])
+# @permission_classes([IsAuthenticated])
+# @permission_classes([IsAdminUser])
+
+# def delete_product(request, id):
+#     try:
+#         product = Product.objects.get(id=id)
+#     except Product.DoesNotExist:
+#         return Response({"error": "Not found"}, status=404)
+
+#     product.delete()
+#     return Response({"message": "Deleted successfully"}, status=204)

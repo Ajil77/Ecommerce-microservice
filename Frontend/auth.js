@@ -1,5 +1,7 @@
 // auth.js - CLEAN VERSION (copy exactly)
-const AUTH_API = 'http://127.0.0.1:8001/api/auth';
+<script src="config.js"></script>
+
+const AUTH_API = CONFIG.AUTH_SERVICE + '/auth';
 
 function getToken() {
     return localStorage.getItem('access_token');

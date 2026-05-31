@@ -234,9 +234,10 @@
 <footer class="footer">
     <div class="container"><div class="footer-content">&copy; 2026 ShopFlow Inc. All rights reserved.</div></div>
 </footer>
+<script src="config.js"></script>
 
 <script>
-    const ORDER_API = 'http://127.0.0.1:8004/api/orders';
+const ORDER_API = CONFIG.ORDER_SERVICE + '/orders';
     const getToken = () => localStorage.getItem('access_token');
     const formatCurrency = (paise) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', minimumFractionDigits: 2 }).format(paise / 100);
 

@@ -30,7 +30,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv("DEBUG") == "True"
 # SECURITY WARNING: don't run with debug turned on in production!
-
+AUTH_SERVICE_URL    = os.getenv('AUTH_SERVICE_URL')
+PRODUCT_SERVICE_URL = os.getenv('PRODUCT_SERVICE_URL')
 
 ALLOWED_HOSTS = ['*']
 

@@ -7,16 +7,17 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from .models import Order, OrderItem
+
 from .razorpay_client import client
 
-
+CART_SERVICE_URL = settings.CART_SERVICE_URL 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def create_order(request):
     token = request.headers.get("Authorization")
 
     res = requests.get(
-        "http://127.0.0.1:8003/api/cart/",
+f"{CART_SERVICE_URL}/cart/",
         headers={"Authorization": token},
         timeout=5
     )

@@ -1,5 +1,8 @@
-const PRODUCT_API = 'http://127.0.0.1:8002/api/products/';
-const CART_API = 'http://127.0.0.1:8003/api/cart';
+<script src="config.js"></script>
+
+const PRODUCT_API = CONFIG.PRODUCT_SERVICE + '/products/';
+const CART_API    = CONFIG.CART_SERVICE + '/cart';
+
 
 function getToken() {
     return localStorage.getItem('access_token');

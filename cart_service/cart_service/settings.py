@@ -72,7 +72,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'cart_service.wsgi.application'
-
+AUTH_SERVICE_URL    = os.getenv('AUTH_SERVICE_URL')
+PRODUCT_SERVICE_URL = os.getenv('PRODUCT_SERVICE_URL')
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases

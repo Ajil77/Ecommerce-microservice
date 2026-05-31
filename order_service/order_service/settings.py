@@ -39,6 +39,9 @@ ALLOWED_HOSTS = ["*"]
 RAZORPAY_KEY_ID = os.getenv("RAZORPAY_KEY_ID")
 RAZORPAY_KEY_SECRET = os.getenv("RAZORPAY_KEY_SECRET")
 # Application definition
+AUTH_SERVICE_URL    = os.getenv('AUTH_SERVICE_URL')
+PRODUCT_SERVICE_URL = os.getenv('PRODUCT_SERVICE_URL')
+CART_SERVICE_URL    = os.getenv('CART_SERVICE_URL')
 
 INSTALLED_APPS = [
         'corsheaders',

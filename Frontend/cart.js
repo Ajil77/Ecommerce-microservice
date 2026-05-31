@@ -1,6 +1,9 @@
+<script src="config.js"></script>
+const CART_API = CONFIG.CART_SERVICE + '/cart';
+
 async function loadCart() {
     try {
-        const res = await fetch('http://127.0.0.1:8003/api/cart/', {
+        const res = await fetch(`${CART_API}/`, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('access_token')}`
             }

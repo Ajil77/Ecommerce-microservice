@@ -3,10 +3,13 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from .models import CartItem
+from django.conf import settings
+
 from .serializers import CartSerializer
 
 import requests
-PRODUCT_SERVICE_URL = "http://127.0.0.1:8002/api/products/"
+PRODUCT_SERVICE_URL = settings.PRODUCT_SERVICE_URL
+
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def add_to_cart(request):
@@ -36,7 +39,7 @@ def get_cart(request):
     for item in items:
         try:
             res = requests.get(
-                f"{PRODUCT_SERVICE_URL}{item.product_id}/",
+f"{PRODUCT_SERVICE_URL}/products/{item.product_id}/",
                 timeout=3
             )
 
